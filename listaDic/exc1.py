@@ -45,11 +45,35 @@ dTurmasLabProvas = {'33A': 'L258',
 	'33G': 'L258'
 }    
 
+def mostrar_sala_prova(dAlunosTurmas,dTurmasLabProvas, nomeAluno):
+    if(nomeAluno in dAlunosTurmas):
+        for aluno in dAlunosTurmas:
+            if(aluno==nomeAluno):
+                turma=dAlunosTurmas.get(aluno)
+                sala=dTurmasLabProvas.get(turma)
+        print("sala atual:",sala)
+        return
+    else:
+        print("Aluno nao pertence a sala")
+        return
 
+def construir_dicionario_frequencias(dAlunosTurmas,dTurmasLabProvas):
+    labPresenca= {}
+    for aluno in dAlunosTurmas:
+        turma=dAlunosTurmas.get(aluno)
+        sala=dTurmasLabProvas.get(turma)
+        if(sala in labPresenca):
+            labPresenca[sala]+=1
+            
+        else:
+            labPresenca[sala]=1
+            
+
+    return labPresenca
 #TESTE FUNÇÂO a       
 #mostrar_sala_prova(dAlunosTurmas, dTurmasLabProvas, 'Ana')
 #mostrar_sala_prova(dAlunosTurmas, dTurmasLabProvas, 'Juca')
 
 #TESTE FUNÇÂO b) 
-#dicfrequencias = construir_dicionario_frequencias(dAlunosTurmas, dTurmasLabProvas)
-#print(dicfrequencias)
+dicfrequencias = construir_dicionario_frequencias(dAlunosTurmas, dTurmasLabProvas)
+print(dicfrequencias)
