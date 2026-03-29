@@ -1,0 +1,110 @@
+Dicionários em Python
+1. O que é um Dicionário?
+• Um dicionário é uma coleção não ordenada, mutável e indexada por chaves.
+• Cada elemento em um dicionário é um par chave-valor, onde a chave é única e imutável, e o valor pode ser
+de qualquer tipo.
+Características:
+• Não ordenado: Antes do Python 3.7, a ordem dos elementos não era garantida. A partir do Python 3.7, a ordem
+de inserção é preservada.
+• Mutável: Podemos adicionar, remover ou modificar elementos após a criação.
+• Chaves únicas: Cada chave em um dicionário deve ser única. Se uma chave for repetida, o último valor associado
+a ela será mantido.
+Resumindo:
+Dicionários são coleções de pares chave-valor, permitindo um acesso eficiente aos dados
+São mutáveis e indexados por chaves únicas.
+Os dicionários são extremamente úteis para organizar e manipular dados de forma eficiente. Eles permitem um acesso
+rápido às informações e são amplamente utilizados em diversas aplicações.
+São muito utilizados para organizar informações.
+2. Sintaxe Básica
+• Os dicionários são definidos utilizando chaves {}
+• Os valores são associados às chaves usando ':'
+• Os pares chave-valor são separados por vírgulas.
+Exemplos de Criação de Dicionários:
+• Dicionário vazio:
+dicionario_vazio = {}
+• Dicionário com pares chave-valor:
+aluno = {"nome": "Maria", "idade": 22, "curso": "Engenharia"}
+print(aluno["nome"]) # Saída: Maria
+• Dicionário com diferentes tipos de chaves e valores:
+dados = {1: "Python", 2.5: [1, 2, 3], True: "Verdadeiro"}
+3. Acesso aos Valores:
+Podemos acessar os valores de um dicionário utilizando as chaves. Caso a chave não exista, um erro é gerado
+Exemplo:
+aluno = {"nome": "Maria", "idade": 22, "curso": "Engenharia"}
+print(aluno["nome"], aluno["idade"] ) # Saída: Maria 22
+Método get():
+Uma forma segura de acessar valores, evitando erros se a chave não existir.
+Exemplo:
+print(aluno.get("nome", "Chave não encontrada")) # Saída: Maria
+print(aluno.get("endereco", "Chave não encontrada")) # Saída: Chave não
+encontrada
+4. Manipulação de Dicionários
+a. Adicionar e Modificar Elementos
+Podemos adicionar novos pares chave-valor ou modificar valores usando a atribuição
+dados = {"nome": "Alice", "idade": 25}
+dados["cidade"] = "São Paulo" # Adicionando um novo par chave-valor
+dados["idade"] = 26 # Modificando um valor existente
+print(dados)
+b. Remover Elementos
+Podemos remover elementos utilizando o método pop() ou a palavra-chave del.
+dados = {"nome": "Alice", "idade": 25, "cidade": "São Paulo"}
+del dados["cidade"] # Remove um item pelo nome da chave
+idade = dados.pop("idade") # Remove e retorna o valor associado à chave
+"idade"
+print(dados) # Saída: {'nome': 'Alice'}
+c. Verificação de Existência:
+Podemos verificar se uma chave está presente no dicionário utilizando o operador in.
+aluno = {"nome": "Maria", "idade": 22}
+print("nome" in aluno) # Saída: True
+print("endereco" in aluno) # Saída: False
+5. Métodos Úteis de Dicionários
+keys():Retorna uma lista com todas as chaves do dicionário.
+Exemplo:
+aluno = {"nome": "Maria", "idade": 22, "curso": "Engenharia"}
+print(aluno.keys()) # Saída: dict_keys(['nome', 'idade', 'curso'])
+values(): Retorna uma lista com todos os valores do dicionário.
+Exemplo:
+print(aluno.values()) # Saída: dict_values(['Maria', 22, 'Engenharia'])
+items(): Retorna uma lista de tuplas, onde cada tupla contém uma chave e seu valor correspondente.
+Exemplo:
+print(aluno.items()) # Saída: dict_items([('nome', 'Maria'),
+('idade',22), ('curso', 'Engenharia')])
+update(): Atualiza o dicionário com pares chave-valor de outro dicionário.
+Exemplo:
+aluno = {"nome": "Maria", "idade": 22}
+aluno.update({"curso": "Engenharia", "semestre": 4})
+print(aluno) # Saída: {'nome': 'Maria', 'idade': 22,
+'curso': 'Engenharia', 'semestre': 4}
+clear(): Remove todos os elementos do dicionário.
+Exemplo:
+aluno.clear()
+print(aluno) # Saída: {}
+6. Percorrendo um Dicionário
+dados = {"nome": "Alice", "idade": 25, "cidade": "São Paulo"}
+# Percorrendo as chaves
+for chave in dados:
+ print(chave)
+# Percorrendo os valores
+for valor in dados.values():
+ print(valor)
+# Percorrendo chaves e valores
+for (chave, valor) in dados.items():
+ print(f"{chave}: {valor}")
+7. Aplicações Práticas
+Exemplo 1: Contagem de Frequência de Palavras
+texto = "python é uma linguagem poderosa e python é fácil de aprender"
+palavras = texto.split()
+frequencia = {}
+for palavra in palavras:
+ frequencia[palavra] = frequencia.get(palavra, 0) + 1
+print(frequencia)
+# Saída: {'python': 2, 'é': 2, 'uma': 1, 'linguagem': 1, 'poderosa': 1, 'e': 1,
+'fácil': 1, 'de': 1, 'aprender': 1}
+Exemplo 2: Armazenamento de Dados de Usuários
+Dicionários podem ser usados para armazenar informações estruturadas.
+Exemplo:
+usuarios = {
+ "joao": {"nome": "João Silva", "idade": 30, "email": "joao@example.com"},
+ "maria": {"nome": "Maria", "idade": 25, "email": "maria@example.com"}
+}
+print(usuarios["joao"]["nome"]) # Saída: João Silva
